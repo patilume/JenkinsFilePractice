@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Example Build') {
             steps {
-                sh 'mvn -B clean verify'
+                //sh 'mvn -B clean verify'
+				sh 'installed docker and now in stage Build....'
             }
         }
     }
