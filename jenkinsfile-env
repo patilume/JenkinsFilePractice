@@ -1,9 +1,10 @@
+//	An environment directive used in the top-level pipeline block will apply to all steps within the Pipeline
 pipeline {
     agent any
     environment { 
         CC = 'clang'
 		username = 'Umesh Patil'
-		emai = 'patilume@gmail.com'
+		email = 'patilume@gmail.com'
     }
     stages {
         stage('Example') {
