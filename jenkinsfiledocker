@@ -1,4 +1,5 @@
 pipeline {
+	//make sure docker is installed on jenkins machine and docker service is active
     agent { docker 'maven:3-alpine' } 
     stages {
         stage('Example Build') {
