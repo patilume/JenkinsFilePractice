@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        mvn 'apache-maven-3.0.1' 
+        maven-1 'apache-maven-3.0.1' 
     }
     stages {
         stage('Example') {
