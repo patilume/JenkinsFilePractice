@@ -4,7 +4,7 @@ pipeline {
         stage('Example Build') {
             steps {
                 //sh 'mvn -B clean verify'
-				sh 'installed docker and now in stage Build....'
+				sh 'echo "installed docker and now in stage Build...."'
             }
         }
     }
