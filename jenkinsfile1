@@ -1,54 +1,52 @@
 pipeline {
 	agent any
  	stages{
-		
-		try {
-			 
-			stage('Delete workspace'){
+		 
+		stage('Delete workspace'){
+			try {
 				steps{
 					// Clean workspace before doing anything
 					deleteDir()
 				}
 			}
-		
-			stage ('Clone') {
-				steps{
-					checkout scm
-				}
-			}
-			
-			stage ('Build') {
-				steps{
-					sh "echo 'shell scripts to build project...'"
-				}
-			}
-			
-			stage ('Tests') {
-				steps{
-					parallel 'static': {
-						sh "echo 'shell scripts to run static tests...'"
-					},
-					'unit': {
-						sh "echo 'shell scripts to run unit tests...'"
-					},
-					'integration': {
-						sh "echo 'shell scripts to run integration tests...'"
-					}
-				}
-			}
-			
-			stage ('Deploy') {
-				steps{
-					sh "echo 'shell scripts to deploy to server...'"
-				}
+			catch (err) {
+				currentBuild.result = 'FAILED'
+				throw err
 			}
 		}
 		
-		 catch (err) {
-			currentBuild.result = 'FAILED'
-			throw err
-		} 	
-	}	
+		stage ('Clone') {
+			steps{
+				checkout scm
+			}
+		}
+			
+		stage ('Build') {
+			steps{
+				sh "echo 'shell scripts to build project...'"
+			}
+		}
+			
+		stage ('Tests') {
+			steps{
+				parallel 'static': {
+					sh "echo 'shell scripts to run static tests...'"
+				},
+				'unit': {
+					sh "echo 'shell scripts to run unit tests...'"
+				},
+				'integration': {
+					sh "echo 'shell scripts to run integration tests...'"
+				}
+			}
+		}
+			
+		stage ('Deploy') {
+			steps{
+				sh "echo 'shell scripts to deploy to server...'"
+			}
+		}
+	}
 }	
 
 def deleteDir(){
