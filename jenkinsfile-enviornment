@@ -1,8 +1,10 @@
+//An environment directive defined within a stage will only apply the given environment variables to steps within the stage
 pipeline {
     agent any
     stages {
         stage('Example Username/Password') {
             environment {
+				//The environment block has a helper method credentials() defined which can be used to access pre-defined Credentials by their identifier in the Jenkins environment.
                 SERVICE_CREDS = credentials('tomcat')
             }
             steps {
