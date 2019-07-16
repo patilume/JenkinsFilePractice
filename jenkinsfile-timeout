@@ -1,5 +1,6 @@
 //a global execution timeout of one hour, after which Jenkins will abort the Pipeline run.
 
+/*
 pipeline {
     agent any
     options {
@@ -7,6 +8,24 @@ pipeline {
     }
     stages {
         stage('Example') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
+
+*/
+
+//a execution timeout of one hour for the Example stage, after which Jenkins will abort the Pipeline run.
+
+pipeline {
+    agent any
+    stages {
+        stage('Example') {
+            options {
+                timeout(time: 1, unit: 'HOURS') 
+            }
             steps {
                 echo 'Hello World'
             }
