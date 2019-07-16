@@ -44,10 +44,10 @@ pipeline {
 			}
 		}
 		
-		/* catch (err) {
+		 catch (err) {
 			currentBuild.result = 'FAILED'
 			throw err
-		} */	
+		} 	
 	}	
 }	
 
