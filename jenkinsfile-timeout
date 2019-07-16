@@ -17,14 +17,16 @@ pipeline {
 
 */
 
-//a execution timeout of one hour for the Example stage, after which Jenkins will abort the Pipeline run.
+
 
 pipeline {
     agent any
-	options { buildDiscarder(logRotator(numToKeepStr: '1')) }
+	//Persist artifacts and console output for the specific number of recent Pipeline runs
+	options { buildDiscarder(logRotator(numToKeepStr: '2')) }
 	
     stages {
         stage('Example') {
+			//a execution timeout of one hour for the Example stage, after which Jenkins will abort the Pipeline run.
             options {
                 timeout(time: 1, unit: 'HOURS') 
             }
