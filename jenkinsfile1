@@ -1,8 +1,8 @@
 pipeline {
- 	
-    try {
-		stages{
-			
+ 	stages{
+		
+		try {
+			 
 			stage('Delete workspace'){
 				// Clean workspace before doing anything
 				deleteDir()
@@ -29,11 +29,12 @@ pipeline {
 				sh "echo 'shell scripts to deploy to server...'"
 			}
 		}
+		
+		catch (err) {
+			currentBuild.result = 'FAILED'
+			throw err
+		}	
 	}	
-	catch (err) {
-		currentBuild.result = 'FAILED'
-		throw err
-	}
 }	
 
 def deleteDir(){
