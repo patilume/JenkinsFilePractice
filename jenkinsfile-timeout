@@ -21,11 +21,14 @@ pipeline {
 
 pipeline {
     agent any
-	//Persist artifacts and console output for the specific number of recent Pipeline runs
-	options { buildDiscarder(logRotator(numToKeepStr: '2')) }
 	
-	//checkout souce code to Subdirectory
-	options { checkoutToSubdirectory('codedir') }
+	options { 
+		//Persist artifacts and console output for the specific number of recent Pipeline runs
+		buildDiscarder(logRotator(numToKeepStr: '2')) 
+		
+		//checkout souce code to Subdirectory
+		checkoutToSubdirectory('codedir')
+	}
 	
     stages {
         stage('Example') {
