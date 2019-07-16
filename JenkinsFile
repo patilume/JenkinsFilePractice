@@ -18,6 +18,7 @@ pipeline {
 
         stage ('Build') {
             steps {
+				sh 'echo "Bild stage"'
             //    sh 'mvn -Dmaven.test.ignore=true install -f my-app/pom.xml' 
             }
             //post {
