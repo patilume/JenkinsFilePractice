@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-                echo 'Hello World'
+                echo 'Timeout for pipeline is 1 minute'
             }
         }
     }
@@ -27,7 +27,7 @@ pipeline {
                 timeout(time: 1, unit: 'HOURS') 
             }
             steps {
-                echo 'Hello World'
+                echo 'Timeout of stage is 1 hour'
             }
         }
     }
