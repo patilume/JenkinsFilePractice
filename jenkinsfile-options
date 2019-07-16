@@ -23,11 +23,18 @@ pipeline {
     agent any
 	
 	options { 
+	
+		//skip default checkout
+		skipDefaultCheckout()
+		
 		//Persist artifacts and console output for the specific number of recent Pipeline runs
 		buildDiscarder(logRotator(numToKeepStr: '2')) 
 		
 		//checkout souce code to Subdirectory
 		checkoutToSubdirectory('codedir')
+		
+		//disable simulatanious builds
+		disableConcurrentBuilds()
 	}
 	
     stages {
