@@ -3,10 +3,10 @@ pipeline {
     stages {
 
         stage ('Initialize') {
-			tools {
+			/* tools {
 			maven 'maven'
 			// java 'java'
-			}	
+			}	*/
 		
             steps {
                 sh '''
