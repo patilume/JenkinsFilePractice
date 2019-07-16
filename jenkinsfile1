@@ -4,13 +4,15 @@ pipeline {
 		 
 		stage('Delete workspace'){
 			steps{
-				try {
-					// Clean workspace before doing anything
-					deleteDir()
-				}
-				catch (err) {
-					currentBuild.result = 'FAILED'
-					throw err
+				script {
+					try {
+						// Clean workspace before doing anything
+						deleteDir()
+					}
+					catch (err) {
+						currentBuild.result = 'FAILED'
+						throw err
+					}
 				}
 			}
 		}
@@ -52,5 +54,3 @@ pipeline {
 def deleteDir(){
 	sh 'echo "This is deleteDir() from Groovy"'
 }
-
-
