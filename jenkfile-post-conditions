@@ -1,0 +1,18 @@
+//post conditions
+
+pipeline {
+    agent any
+    stages {
+        stage('Example') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+    post { 
+		//always run regardless of pipeline status	
+        always { 
+            echo 'I will execute always regardless of pipeline stages status..!'
+        }
+    }
+}
