@@ -1,13 +1,13 @@
 pipeline {
     agent any
     stages {
-	
-		tools {
-			maven 'maven'
-			// java 'java'
-		}	
 
         stage ('Initialize') {
+			tools {
+			maven 'maven'
+			// java 'java'
+			}	
+		
             steps {
                 sh '''
                     echo "PATH = ${PATH}"
