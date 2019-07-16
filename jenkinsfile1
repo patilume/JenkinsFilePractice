@@ -28,3 +28,6 @@ pipeline {
         throw err
     }
 }
+def deleteDir(){
+	sh 'echo "This is deleteDir() from Groovy"'
+}
