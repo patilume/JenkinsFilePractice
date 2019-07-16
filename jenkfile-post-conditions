@@ -14,5 +14,41 @@ pipeline {
         always { 
             echo 'I will execute always regardless of pipeline stages status..!'
         }
+		//only run if the current Pipeline’s or stage’s run has a different completion status from its previous run
+		changed{
+			echo 'I will execute only if current pipeline run status different from previous run..!'
+		}
+		//if the current Pipeline’s or stage’s run is successful and the previous run failed or was unstable
+		fixed{
+			echo 'if the current Pipeline’s or stage’s run is successful and the previous run failed or was unstable'
+		}
+		//if the current Pipeline’s or stage’s run’s status is failure, unstable, or aborted and the previous run was successful.
+		regression{
+			echo 'regression'
+		}
+		//if the current Pipeline’s or stage’s run has an "aborted" status, usually due to the Pipeline being manually aborted.
+		aborted{
+			echo 'manually aborted'
+		}
+		//if the current Pipeline’s or stage’s run has a "failed" status
+		failure{
+			echo 'failed'
+		}
+		//if the current Pipeline’s or stage’s run has a "success" status
+		success{
+			echo 'success'
+		}
+		// if the current Pipeline’s or stage’s run has an "unstable" status
+		unstable{
+			echo 'unstable'
+		}
+		//if the current Pipeline’s or stage’s run has not a "success" status. This is typically denoted in the web UI depending on the status previously mentioned
+		unsuccessful{
+			echo 'unsuccessful'
+		}
+		//Run the steps in this post condition after every other post condition has been evaluated, regardless of the Pipeline or stage’s status
+		cleanup{
+			echo 'cleanup...'
+		}
     }
 }
