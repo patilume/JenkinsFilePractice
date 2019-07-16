@@ -3,15 +3,16 @@ pipeline {
  	stages{
 		 
 		stage('Delete workspace'){
-			try {
-				steps{
+			
+			steps{
+				try {
 					// Clean workspace before doing anything
 					deleteDir()
 				}
-			}
-			catch (err) {
-				currentBuild.result = 'FAILED'
-				throw err
+				catch (err) {
+					currentBuild.result = 'FAILED'
+					throw err
+				}
 			}
 		}
 		
