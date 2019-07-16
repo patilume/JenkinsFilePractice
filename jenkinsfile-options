@@ -40,10 +40,10 @@ pipeline {
 		disableResume() 
 		
 		//Preserve stashesh to user with stage restarting
-		preserveStashes() 
+		//preserveStashes() 
 		
 		//Preserve stashesh of # of completed builds
-		//preserveStashes(buildCount: 5) 
+		preserveStashes(buildCount: 5) 
 		
 		//Set the quiet period, in seconds, for the Pipeline, overriding the global default
 		quietPeriod(30) 
