@@ -2,7 +2,7 @@ pipeline {
 	agent any
  	stages{
 		
-		//try {
+		try {
 			 
 			stage('Delete workspace'){
 				steps{
@@ -42,7 +42,7 @@ pipeline {
 					sh "echo 'shell scripts to deploy to server...'"
 				}
 			}
-		//}
+		}
 		
 		/* catch (err) {
 			currentBuild.result = 'FAILED'
