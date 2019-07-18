@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'This is when condition demo'
-		return env.BRANCH_NAME = 'master';
+		env.BRANCH_NAME = 'master';
 		echo env.BRANCH_NAM
             }
         }
