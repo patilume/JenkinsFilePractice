@@ -9,6 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'This is when condition demo'
+		echo env.BRANCH_NAM
             }
         }
         stage('Deploy') {
