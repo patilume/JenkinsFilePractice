@@ -13,8 +13,11 @@ pipeline {
         }
         stage('Deploy') {
             when {
+				expression {
+					return env.GIT_BRANCH == "origin/master"
+				}
 				allOf {
-					branch 'mater'
+					branch 'origin/master'
 					environment name: 'DEPLOY_TO', value: 'production'
 				}
             }
