@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages {
+        stage('Example Build') {
+            steps {
+                echo 'This is when condition demo'
+            }
+        }
+        stage('Example Deploy') {
+            when {
+                branch 'production'
+            }
+            steps {
+                echo 'Deploying from production'
+            }
+        }
+    }
+}
