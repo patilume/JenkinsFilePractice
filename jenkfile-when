@@ -14,7 +14,7 @@ pipeline {
         stage('Deploy') {
             when {
 				allOf {
-					branch 'master'
+					branch 'origin/master'
 					environment name: 'DEPLOY_TO', value: 'production'
 				}
             }
