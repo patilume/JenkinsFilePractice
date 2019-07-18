@@ -16,10 +16,8 @@ pipeline {
 				expression {
 					return sh(script: "git rev-parse --abbrev-ref HEAD", returnStdout: true).trim() == "master"
 				}
-				allOf {
-					branch 'master'
-					environment name: 'DEPLOY_TO', value: 'production'
-				}
+				branch 'master'
+				environment name: 'DEPLOY_TO', value: 'production'
             }
             steps {
                 echo 'Deploying from production'
