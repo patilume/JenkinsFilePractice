@@ -14,10 +14,10 @@ pipeline {
         stage('Deploy') {
             when {
 				expression {
-					return env.GIT_BRANCH == "origin/master"
+					return sh(script: "git rev-parse --abbrev-ref HEAD", returnStdout: true).trim() == "master"
 				}
 				allOf {
-					branch 'origin/master'
+					branch 'master'
 					environment name: 'DEPLOY_TO', value: 'production'
 				}
             }
