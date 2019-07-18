@@ -31,11 +31,11 @@ pipeline {
 			
 			when {
 			expression {
-				return env.BRANCH_NAME != 'master';
+				return env.BRANCH_NAME == 'master';
 				}
 			}
 			steps {
-				echo 'run this stage - when branch is not equal to master'
+				echo 'run this stage - when branch is equal to master'
 			}
 		}
 
