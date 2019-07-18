@@ -12,12 +12,14 @@ pipeline {
             }
         }
         stage('Deploy') {
-            when {
-				expression {
+            when(BRANCH_NAME == 'master') {
+				/* expression {
 					// return sh(script: "git rev-parse --abbrev-ref HEAD", returnStdout: true).trim() == "master"
 					return env.BRANCH_NAME == "master"
-				}
-				branch 'master'
+				} 
+				
+				
+				branch 'master' */
 				environment name: 'DEPLOY_TO', value: 'production'
             }
             steps {
