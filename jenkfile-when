@@ -17,7 +17,7 @@ pipeline {
   		return env.BRANCH_NAME == "master"
 		
 		}
-		 echo ${env.BRANCH_NAME}
+		 echo "BRANCH_NAME is ${env.BRANCH_NAME}"
 		
 		
   
