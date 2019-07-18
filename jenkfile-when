@@ -1,12 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('Example Build') {
+        stage('Build') {
             steps {
                 echo 'This is when condition demo'
             }
         }
-        stage('Example Deploy') {
+        stage('Deploy') {
             when {
                 branch 'master'
 				environment name: 'DEPLOY_TO', value: 'production'
