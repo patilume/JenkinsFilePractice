@@ -9,7 +9,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'This is when condition demo'
-		env.BRANCH_NAME = 'master';
+		expression {
+			env.BRANCH_NAME = 'master';
+		}
 		echo env.BRANCH_NAM
             }
         }
