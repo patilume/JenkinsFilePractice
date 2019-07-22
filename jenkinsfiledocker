@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Example Build') {
             steps {
-	    		withDockerServer([uri: 'tcp://172.31.46.70:2376']) {
+	    		withDockerServer([uri: 'tcp://172.31.46.70:2376' credentialsId:'']) {
 				sh 'docker --version'
 	    		}
                 //sh 'mvn -B clean verify'
