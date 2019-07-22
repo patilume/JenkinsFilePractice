@@ -1,6 +1,6 @@
 pipeline {
 	//make sure docker is installed on jenkins machine and docker service is active
-    agent { docker 'maven' } 
+    agent { lable 'docker-agent' } 
     stages {
         stage('Example Build') {
             steps {
