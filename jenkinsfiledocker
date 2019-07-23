@@ -1,7 +1,7 @@
 pipeline {
 	//agent any
 	//make sure docker is installed on jenkins machine and docker service is active
-     agent { label 'docker-agent' }
+     //agent { label 'docker-agent' }
     stages {
         stage('Example Build') {
             steps {
@@ -10,7 +10,7 @@ pipeline {
  //sh "${dockerTool} docker images"
  
 	    		//withDockerServer([uri: 'tcp://172.31.46.70:2376' credentialsId:'']) {
-				//sh 'docker --version'
+				sh 'docker --version'
 	    		//}
                 //sh 'mvn -B clean verify'
 				sh 'echo "installed docker and now in stage Build...."'
