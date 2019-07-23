@@ -5,8 +5,12 @@ pipeline {
     stages {
         stage('Example Build') {
             steps {
+	    
+def dockerTool = tool name: 'rmdocker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+ sh "${dockerTool} docker images"
+ 
 	    		//withDockerServer([uri: 'tcp://172.31.46.70:2376' credentialsId:'']) {
-				sh 'docker --version'
+				//sh 'docker --version'
 	    		//}
                 //sh 'mvn -B clean verify'
 				sh 'echo "installed docker and now in stage Build...."'
