@@ -1,5 +1,5 @@
 pipeline {
-	//agent any
+	agent any
 	//make sure docker is installed on jenkins machine and docker service is active
      //agent { label 'docker-agent' }
     stages {
