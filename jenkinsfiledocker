@@ -11,6 +11,9 @@ pipeline {
  
 	    		//withDockerServer([uri: 'tcp://172.31.46.70:2376' credentialsId:'']) {
 				sh 'docker --version'
+				sh 'docker images'
+				sh 'echo "------------------"'
+				sh 'docker ps'
 	    		//}
                 //sh 'mvn -B clean verify'
 				sh 'echo "installed docker and now in stage Build...."'
